@@ -1,8 +1,12 @@
 import React from "react";
-import { axiosAuth } from "../utils/axiosAuth";
+import Login from "./Login";
 
 const Landing = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 };
 
 export default Landing;
