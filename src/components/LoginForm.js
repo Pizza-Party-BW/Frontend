@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
@@ -6,7 +6,6 @@ const LoginForm = props => {
   const [user, setUser] = useState({ username: "", password: "" });
 
   console.log(user);
-  useEffect(() => {});
 
   function handleChange(e) {
     const updatedUser = { ...user, [e.target.name]: e.target.value };
@@ -19,6 +18,8 @@ const LoginForm = props => {
       .post("https://lambda-mud-test.herokuapp.com/api/login/", user)
       .then(res => {
         console.log("Logged in!", res.data);
+        localStorage.setItem("token", res.data.key);
+        props.history.push("/dashboard");
       })
       .catch(err => {
         console.log("Error occured!: ", err.response);
