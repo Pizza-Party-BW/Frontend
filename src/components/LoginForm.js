@@ -5,10 +5,7 @@ import { login } from "../actions";
 
 const LoginForm = props => {
   const [user, setUser] = useState({ username: "", password: "" });
-  const [loginState, dispatch] = useStateValue();
-
-  console.log(user);
-  console.log(loginState);
+  const [{ loginState }, dispatch] = useStateValue();
 
   function handleChange(e) {
     const updatedUser = { ...user, [e.target.name]: e.target.value };
