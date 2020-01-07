@@ -8,6 +8,7 @@ const Dashboard = () => {
   // Map
   // Directional Pad
   // Log of actions
+  console.log("TEST DASHBOARD!");
 
   return (
     <div>

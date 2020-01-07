@@ -8,7 +8,7 @@ const LoginForm = props => {
   const [loginState, dispatch] = useStateValue();
 
   console.log(user);
-  console.log(login);
+  console.log(loginState);
 
   function handleChange(e) {
     const updatedUser = { ...user, [e.target.name]: e.target.value };
