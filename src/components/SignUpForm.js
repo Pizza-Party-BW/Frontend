@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import { useStateValue } from "../hooks/useStateValue";
 import { signUp } from "../actions";
+import styled from "styled-components";
 
 const SignUpForm = props => {
   const [user, setUser] = useState({
@@ -40,23 +41,53 @@ const SignUpForm = props => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input name="username" type="text" onChange={handleChange} />
-      </label>
-      <label>
-        Password:
-        <input name="password1" type="password" onChange={handleChange} />
-      </label>
-      <label>
-        Confirm Password:
-        <input name="password2" type="password" onChange={handleChange} />
-      </label>
+    <SignUpFormWrapper onSubmit={handleSubmit}>
+      <SignUpLabel htmlFor="username">Username:</SignUpLabel>
+      <SignUpInput
+        name="username"
+        id="username"
+        type="text"
+        onChange={handleChange}
+      />
+
+      <SignUpLabel htmlFor="password1">Password:</SignUpLabel>
+      <SignUpInput
+        name="password1"
+        id="password1"
+        type="password"
+        onChange={handleChange}
+      />
+
+      <SignUpLabel htmlFor="password2">Confirm Password:</SignUpLabel>
+      <SignUpInput
+        name="password2"
+        id="password2"
+        type="password"
+        onChange={handleChange}
+      />
+
       <button>Submit</button>
-    </form>
+    </SignUpFormWrapper>
   );
 };
 
 // Used the withRouter hook to pass history, location, match props from react-router-dom
 export default withRouter(SignUpForm);
+
+const SignUpFormWrapper = styled.form`
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 4rem;
+  margin: 2rem 0;
+`;
+
+const SignUpLabel = styled.label`
+  margin-bottom: 0.2rem;
+`;
+
+const SignUpInput = styled.input`
+  margin-bottom: 1rem;
+`;
