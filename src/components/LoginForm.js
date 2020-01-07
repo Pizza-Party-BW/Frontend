@@ -6,6 +6,7 @@ import { login } from "../actions";
 const LoginForm = props => {
   const [user, setUser] = useState({ username: "", password: "" });
   const [{ loginState }, dispatch] = useStateValue();
+  let loginError = loginState.error.non_field_errors;
 
   function handleChange(e) {
     const updatedUser = { ...user, [e.target.name]: e.target.value };
@@ -23,6 +24,7 @@ const LoginForm = props => {
 
   return (
     <>
+      {loginError && <div>ERROR: {loginError}</div>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
