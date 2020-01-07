@@ -17,3 +17,46 @@ export const getLocation = dispatch => {
       dispatch({ type: LOCATION_ERROR, payload: err.response.data });
     });
 };
+
+export const MOVING_PLAYER = "MOVING_PLAYER";
+export const MOVE_PLAYER_SUCCESS = "MOVE_PLAYER_SUCCESS";
+export const MOVE_PLAYER_ERROR = "MOVE_PLAYER_ERROR";
+
+export const movePlayer = (dispatch, move) => {
+  dispatch({ type: MOVING_PLAYER });
+  axiosAuth()
+    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", {
+      direction: move
+    })
+    .then(res => {
+      dispatch({ type: MOVE_PLAYER_SUCCESS, payload: res.data });
+      console.log(res.data);
+    })
+    .catch(err => {
+      dispatch({ type: MOVE_PLAYER_ERROR, payload: err.response.data });
+      console.log(err.response.data);
+    });
+};
+
+export const getKeyCode = (dispatch, e) => {
+  let keyCode = null;
+
+  switch (e.keyCode) {
+    case 37:
+      keyCode = "w";
+      break;
+    case 38:
+      keyCode = "n";
+      break;
+    case 39:
+      keyCode = "e";
+      break;
+    case 40:
+      keyCode = "s";
+      break;
+    default:
+      break;
+  }
+
+  movePlayer(dispatch, keyCode);
+};
