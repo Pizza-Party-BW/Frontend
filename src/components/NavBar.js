@@ -9,12 +9,17 @@ const NavBar = props => {
 
   return (
     <div>
-      {loginState.isLoggedIn ||
-        (token && (
-          <Link to="/" onClick={() => logout(dispatch)}>
-            Logout
-          </Link>
-        ))}
+      <Link to="/">Home</Link>
+
+      {loginState.isLoggedIn || token ? (
+        <Link to="/" onClick={() => logout(dispatch)}>
+          Logout
+        </Link>
+      ) : (
+        <Link to="/login">Login</Link>
+      )}
+
+      {(!loginState.isLoggedIn || !token) && <Link to="/signup">Sign Up</Link>}
     </div>
   );
 };
