@@ -9,8 +9,11 @@ import Landing from "./components/Landing";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
+
+// Initial State
 import initialState from "./reducers/initialState";
 
+// Reducers
 import { rootReducer } from "./reducers";
 
 function App() {
