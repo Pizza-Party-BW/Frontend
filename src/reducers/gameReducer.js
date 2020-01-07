@@ -1,4 +1,11 @@
-import { GETTING_LOCATION, LOCATION_SUCCESS, LOCATION_ERROR } from "../actions";
+import {
+  GETTING_LOCATION,
+  LOCATION_SUCCESS,
+  LOCATION_ERROR,
+  MOVING_PLAYER,
+  MOVE_PLAYER_SUCCESS,
+  MOVE_PLAYER_ERROR
+} from "../actions";
 
 /*
 State shape:
@@ -23,6 +30,22 @@ export const locationReducer = (state, { type, payload }) => {
         location: payload
       };
     case LOCATION_ERROR:
+      return {
+        ...state,
+        error: payload
+      };
+    case MOVING_PLAYER:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case MOVE_PLAYER_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        location: { ...state.location, ...payload }
+      };
+    case MOVE_PLAYER_ERROR:
       return {
         ...state,
         error: payload

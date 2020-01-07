@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { axiosAuth } from "../utils/axiosAuth";
 
 // Components
 import GameMap from "./GameMap";
+import DirectionPad from "./DirectionPad";
 
 const Dashboard = () => {
   // NavBar
@@ -12,6 +14,7 @@ const Dashboard = () => {
   return (
     <div>
       <GameMap />
+      <DirectionPad />
     </div>
   );
 };
