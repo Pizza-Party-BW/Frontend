@@ -3,6 +3,11 @@ const initialState = {
     isLoading: false,
     isLoggedIn: false,
     error: {}
+  },
+  signUpState: {
+    isLoading: false,
+    isSignedUp: false,
+    error: {}
   }
 };
 
