@@ -10,7 +10,6 @@ export const getLocation = dispatch => {
     .get("https://lambda-mud-test.herokuapp.com/api/adv/init/")
     .then(res => {
       dispatch({ type: LOCATION_SUCCESS, payload: res.data });
-      console.log("location", res);
     })
     .catch(err => {
       console.log("Error occured!: ", err.response);
