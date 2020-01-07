@@ -36,26 +36,3 @@ export const movePlayer = (dispatch, move) => {
       console.log(err.response.data);
     });
 };
-
-export const getKeyCode = (dispatch, e) => {
-  let keyCode = null;
-
-  switch (e.keyCode) {
-    case 37:
-      keyCode = "w";
-      break;
-    case 38:
-      keyCode = "n";
-      break;
-    case 39:
-      keyCode = "e";
-      break;
-    case 40:
-      keyCode = "s";
-      break;
-    default:
-      break;
-  }
-
-  movePlayer(dispatch, keyCode);
-};
