@@ -4,15 +4,17 @@ import { useStateValue } from "../hooks/useStateValue";
 import { logout } from "../actions";
 
 const NavBar = props => {
-  const [loginState, dispatch] = useStateValue();
+  const [{ loginState }, dispatch] = useStateValue();
   let token = localStorage.getItem("token");
 
   return (
     <div>
-      {loginState && <div>Test</div>}
-      <Link to="/" onClick={() => logout(dispatch)}>
-        Logout
-      </Link>
+      {loginState.isLoggedIn ||
+        (token && (
+          <Link to="/" onClick={() => logout(dispatch)}>
+            Logout
+          </Link>
+        ))}
     </div>
   );
 };
