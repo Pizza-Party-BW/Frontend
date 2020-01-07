@@ -1,5 +1,6 @@
-import { loginReducer } from "./index";
+import { loginReducer, signUpReducer } from "./index";
 
-export const rootReducer = (login, action) => ({
-  login: loginReducer(login, action)
+export const rootReducer = ({ loginState, signUpState }, action) => ({
+  loginState: loginReducer(loginState, action),
+  signUpState: signUpReducer(signUpState, action)
 });
