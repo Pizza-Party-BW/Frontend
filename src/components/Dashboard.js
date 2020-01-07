@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { axiosAuth } from "../utils/axiosAuth";
+import React from "react";
 
 // Components
 import GameMap from "./GameMap";
