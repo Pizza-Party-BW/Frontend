@@ -23,5 +23,5 @@ export const login = (dispatch, user) => {
 
 export const logout = dispatch => {
   dispatch({ type: LOGOUT });
-  localStorage.setItem("token", "");
+  localStorage.removeItem("token");
 };
