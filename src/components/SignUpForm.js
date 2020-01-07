@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
+import { useStateValue } from "../hooks/useStateValue";
+import { signUp } from "../actions";
 
 const SignUpForm = props => {
   const [user, setUser] = useState({
@@ -8,9 +9,11 @@ const SignUpForm = props => {
     password1: "",
     password2: ""
   });
+  const [{ signUpState }, dispatch] = useStateValue();
 
   const handleChange = event => {
-    setUser({ ...user, [event.target.name]: event.target.value });
+    const updatedUser = { ...user, [event.target.name]: event.target.value };
+    setUser(updatedUser);
   };
 
   const handleSubmit = event => {
@@ -28,22 +31,12 @@ const SignUpForm = props => {
       return;
     }
 
-    // TODO: Change POST endpoint url
-    axios
-      .post("https://lambda-mud-test.herokuapp.com/api/registration/", user)
-      .then(res => {
-        console.log("User successfully signed up! ", res.data);
-        // Returns res.data ==> { key: String }
-
-        // Sets the token into localStorage for private route calls
-        localStorage.setItem("token", res.data.key);
-
-        // Re-routes to Dashboard after successful registration
+    signUp(dispatch, user).then(res => {
+      // Re-routes to Dashboard after successful registration
+      if (res) {
         props.history.push("/dashboard");
-      })
-      .catch(err => {
-        console.log("Error occurred: ", err.response);
-      });
+      }
+    });
   };
 
   return (
