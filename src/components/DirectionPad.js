@@ -5,13 +5,35 @@ import { movePlayer, getKeyCode } from "../actions";
 const DirectionPad = () => {
   const [{ locationState }, dispatch] = useStateValue();
 
+  const getKeyCode = e => {
+    let keyCode = null;
+
+    switch (e.keyCode) {
+      case 37:
+        keyCode = "w";
+        break;
+      case 38:
+        keyCode = "n";
+        break;
+      case 39:
+        keyCode = "e";
+        break;
+      case 40:
+        keyCode = "s";
+        break;
+      default:
+        break;
+    }
+
+    movePlayer(dispatch, keyCode);
+  };
+
   useEffect(() => {
     // Add event listener for keyboard press
-    window.addEventListener("keydown", e => getKeyCode(dispatch, e));
+    window.addEventListener("keydown", getKeyCode);
 
     // Used to clean up the event listener
-    return () =>
-      window.removeEventListener("keydown", e => getKeyCode(dispatch, e));
+    return () => window.removeEventListener("keydown", getKeyCode);
   }, []);
 
   return (
