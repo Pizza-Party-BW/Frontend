@@ -6,9 +6,6 @@ import { logout } from "../actions";
 const NavBar = props => {
   const [loginState, dispatch] = useStateValue();
   let token = localStorage.getItem("token");
-  console.log("PROPS", props, loginState);
-  console.log("test");
-  console.log(token);
 
   return (
     <div>
