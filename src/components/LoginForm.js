@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
+import { useStateValue } from "../hooks/useStateValue";
+import { login } from "../actions";
 
 const LoginForm = props => {
   const [user, setUser] = useState({ username: "", password: "" });
+  const [loginState, dispatch] = useStateValue();
 
   console.log(user);
+  console.log(login);
 
   function handleChange(e) {
     const updatedUser = { ...user, [e.target.name]: e.target.value };
@@ -14,16 +17,11 @@ const LoginForm = props => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios
-      .post("https://lambda-mud-test.herokuapp.com/api/login/", user)
-      .then(res => {
-        console.log("Logged in!", res.data);
-        localStorage.setItem("token", res.data.key);
+    login(dispatch, user).then(res => {
+      if (res) {
         props.history.push("/dashboard");
-      })
-      .catch(err => {
-        console.log("Error occured!: ", err.response);
-      });
+      }
+    });
   }
 
   return (
