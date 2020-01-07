@@ -15,7 +15,7 @@ import { rootReducer } from "./reducers";
 
 function App() {
   return (
-    <StateProvider value={initialState} reducer={rootReducer}>
+    <StateProvider initialState={initialState} reducer={rootReducer}>
       <div className="App">
         <NavBar />
         <Switch>
