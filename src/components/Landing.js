@@ -1,12 +1,7 @@
 import React from "react";
-import Login from "./Login";
 
 const Landing = () => {
-  return (
-    <div>
-      <Login />
-    </div>
-  );
+  return <div>Landing Page!</div>;
 };
 
 export default Landing;
