@@ -9,7 +9,7 @@ export const LOGOUT = "LOGOUT";
 export const login = (dispatch, user) => {
   dispatch({ type: IS_LOGGING_IN });
   return axios
-    .post("http://pizza-party-bw.herokuapp.com/api/login/", user)
+    .post("https://pizza-party-bw.herokuapp.com/api/login/", user)
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
       localStorage.setItem("token", res.data.key);
