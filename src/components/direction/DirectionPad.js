@@ -99,6 +99,7 @@ const DirectionPadWrapper = styled.div`
     cursor: pointer;
     border: none;
     background-color: transparent;
+    outline: none;
   }
 
   button.north {
