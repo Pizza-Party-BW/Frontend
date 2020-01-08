@@ -7,6 +7,7 @@ import styled from "styled-components";
 const SignUpForm = props => {
   const [user, setUser] = useState({
     username: "",
+    email: "",
     password1: "",
     password2: ""
   });
@@ -47,6 +48,14 @@ const SignUpForm = props => {
         name="username"
         id="username"
         type="text"
+        onChange={handleChange}
+      />
+
+      <SignUpLabel htmlFor="email">Email:</SignUpLabel>
+      <SignUpInput
+        name="email"
+        id="email"
+        type="email"
         onChange={handleChange}
       />
 

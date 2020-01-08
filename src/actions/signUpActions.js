@@ -11,7 +11,7 @@ export const signUp = (dispatch, user) => {
 
   // TODO: Change POST endpoint url
   return axios
-    .post("https://lambda-mud-test.herokuapp.com/api/registration/", user)
+    .post("https://pizza-party-bw.herokuapp.com/api/registration/", user)
     .then(res => {
       dispatch({ type: SIGN_UP_SUCCESS });
       // console.log("User successfully signed up! ", res.data);
