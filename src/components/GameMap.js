@@ -6,6 +6,8 @@ const GameMap = () => {
   const [{ locationState, mapState }, dispatch] = useStateValue();
   let errorMsg = locationState.location.error_msg;
 
+  console.log("Map State", mapState.map.data);
+
   useEffect(() => {
     getLocation(dispatch);
     getMap(dispatch);

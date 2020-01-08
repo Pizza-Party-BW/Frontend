@@ -10,7 +10,6 @@ export const getMap = dispatch => {
     .get("/api/rooms/")
     .then(res => {
       dispatch({ type: MAP_SUCCESS, payload: res });
-      console.log(res);
     })
     .catch(err => {
       console.log("Error occured!: ", err.response);
