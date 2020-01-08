@@ -2,7 +2,7 @@ import React from "react";
 
 // Components
 import GameMap from "./GameMap";
-import DirectionPad from "./DirectionPad";
+import DirectionPad from "./direction/DirectionPad";
 
 const Dashboard = () => {
   // NavBar
