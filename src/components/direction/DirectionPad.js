@@ -48,50 +48,22 @@ const DirectionPad = () => {
         <button
           value="n"
           onClick={e => movePlayer(dispatch, e.target.value)}
-          style={{
-            ...DirectionPadButton,
-            backgroundImage: `url(${north})`,
-            gridColumnStart: 1,
-            gridColumnEnd: 2,
-            gridRowStart: 0,
-            gridRowEnd: 1
-          }}
+          className="north"
         ></button>
         <button
           value="w"
           onClick={e => movePlayer(dispatch, e.target.value)}
-          style={{
-            ...DirectionPadButton,
-            backgroundImage: `url(${west})`,
-            gridColumnStart: 0,
-            gridColumnEnd: 1,
-            gridRowStart: 1,
-            gridRowEnd: 2
-          }}
+          className="west"
         ></button>
         <button
           value="s"
           onClick={e => movePlayer(dispatch, e.target.value)}
-          style={{
-            ...DirectionPadButton,
-            backgroundImage: `url(${south})`,
-            gridColumnStart: 1,
-            gridColumnEnd: 2,
-            gridRowStart: 2,
-            gridRowEnd: 3
-          }}
+          className="south"
         ></button>
         <button
           value="e"
           onClick={e => movePlayer(dispatch, e.target.value)}
-          style={{
-            ...DirectionPadButton,
-            backgroundImage: `url(${east})`,
-            gridColumnStart: 2,
-            gridColumnEnd: 3,
-            gridRowStart: 1,
-            gridRowEnd: 2
-          }}
+          className="east"
         ></button>
       </DirectionPadWrapper>
     </>
@@ -104,12 +76,48 @@ const DirectionPadWrapper = styled.div`
   display: grid;
   height: 96px;
   width: 96px;
-`;
 
-const DirectionPadButton = {
-  width: 32,
-  height: 32,
-  cursor: "pointer",
-  border: "none",
-  backgroundColor: "transparent"
-};
+  button {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+  }
+
+  button.north {
+    background-image: url(${north});
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 0;
+    grid-row-end: 1;
+  }
+
+  button.west {
+    background-image: url(${west});
+    grid-column-start: 0;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  button.south {
+    background-image: url(${south});
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  button.east {
+    background-image: url(${east});
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  button:active {
+    transform: scale(0.8);
+  }
+`;
