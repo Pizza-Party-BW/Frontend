@@ -7,6 +7,7 @@ export const axiosAuth = () => {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Token ${token}`
-    }
+    },
+    baseURL: "https://pizza-party-bw.herokuapp.com"
   });
 };

@@ -7,7 +7,7 @@ export const LOCATION_ERROR = "LOCATION_ERROR";
 export const getLocation = dispatch => {
   dispatch({ type: GETTING_LOCATION });
   axiosAuth()
-    .get("https://lambda-mud-test.herokuapp.com/api/adv/init/")
+    .get("/api/adv/init")
     .then(res => {
       dispatch({ type: LOCATION_SUCCESS, payload: res.data });
     })
@@ -24,7 +24,7 @@ export const MOVE_PLAYER_ERROR = "MOVE_PLAYER_ERROR";
 export const movePlayer = (dispatch, move) => {
   dispatch({ type: MOVING_PLAYER });
   axiosAuth()
-    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", {
+    .post("/api/adv/move/", {
       direction: move
     })
     .then(res => {

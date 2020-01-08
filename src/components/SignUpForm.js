@@ -87,7 +87,7 @@ const SignUpFormWrapper = styled.form`
   font-size: 2rem;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid ${({ theme }) => theme.primaryColor};
   border-radius: 15px;
   padding: 4rem;
   margin: 2rem 0;
