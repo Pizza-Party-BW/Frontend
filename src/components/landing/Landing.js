@@ -32,6 +32,7 @@ const team = [
     photo: may
   }
 ];
+
 const Landing = () => {
   return (
     <LandingContainer>
@@ -51,8 +52,8 @@ const Landing = () => {
       <GameScrnSht>SCREENSHOT OF GAMEPLAY!</GameScrnSht>
       <LandingHeader>Meet The Team!</LandingHeader>
       <TeamCardContainer>
-        {team.map(member => (
-          <TeamCard member={member} />
+        {team.map((member, key) => (
+          <TeamCard member={member} key={key} />
         ))}
       </TeamCardContainer>
     </LandingContainer>

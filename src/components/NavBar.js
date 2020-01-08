@@ -11,11 +11,11 @@ const NavBar = props => {
 
   return (
     <StyledNav>
-      <div className="logoHeader">
-        <img src={pizzaLogo} className="logo" />
-        <h1>Pizza Party</h1>
-      </div>
-      <div className="navLinks">
+      <LogoHeader>
+        <Logo src={pizzaLogo} className="logo" />
+        <NavHeader>Pizza Party</NavHeader>
+      </LogoHeader>
+      <NavLinksContainer>
         {props.location.pathname !== "/" && <Link to="/">Home</Link>}
 
         {props.location.pathname === "/" &&
@@ -34,7 +34,7 @@ const NavBar = props => {
         {props.location.pathname !== "/signup" && !token && (
           <Link to="/signup">Sign Up</Link>
         )}
-      </div>
+      </NavLinksContainer>
     </StyledNav>
   );
 };
@@ -48,33 +48,33 @@ const StyledNav = styled.div`
   width: 100%;
   margin-top: 20px;
 
-  h1 {
-    font-size: ${({ theme }) => theme.largeFont};
-    font-family: "Press Start 2P";
-    color: ${({ theme }) => theme.primaryColor};
-  }
-
   a {
     font-size: ${({ theme }) => theme.mediumFont};
     color: ${({ theme }) => theme.primaryColor};
     font-family: ${({ theme }) => theme.secondaryFont};
     text-decoration: none;
   }
+`;
 
-  .navLinks {
-    width: 20%;
-    display: flex;
-    justify-content: space-between;
-  }
+const NavHeader = styled.h1`
+  font-size: ${({ theme }) => theme.largeFont};
+  font-family: "Press Start 2P";
+  color: ${({ theme }) => theme.primaryColor};
+`;
 
-  .logo {
-    height: 75px;
-  }
+const NavLinksContainer = styled.div`
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+`;
 
-  .logoHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 420px;
-  }
+const LogoHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 420px;
+`;
+
+const Logo = styled.img`
+  height: 75px;
 `;
