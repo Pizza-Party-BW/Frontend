@@ -15,24 +15,40 @@ const DirectionPad = () => {
   const getKeyCode = e => {
     let keyCode = null;
 
+    let up = document.querySelector(".north");
+    let left = document.querySelector(".west");
+    let down = document.querySelector(".south");
+    let right = document.querySelector(".east");
+
     switch (e.keyCode) {
       case 37:
         keyCode = "w";
+        left.style.transform = "scale(0.8)";
         break;
       case 38:
         keyCode = "n";
+        up.style.transform = "scale(0.8)";
         break;
       case 39:
         keyCode = "e";
+        right.style.transform = "scale(0.8)";
         break;
       case 40:
         keyCode = "s";
+        down.style.transform = "scale(0.8)";
         break;
       default:
         break;
     }
 
     movePlayer(dispatch, keyCode);
+
+    setTimeout(() => {
+      up.removeAttribute("style");
+      down.removeAttribute("style");
+      left.removeAttribute("style");
+      right.removeAttribute("style");
+    }, 100);
   };
 
   useEffect(() => {
