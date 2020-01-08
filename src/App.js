@@ -5,7 +5,7 @@ import { PrivateRoute } from "./utils/PrivateRoute";
 
 // Components
 import NavBar from "./components/NavBar";
-import Landing from "./components/Landing";
+import Landing from "./components/landing/Landing";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
