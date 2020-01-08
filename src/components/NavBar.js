@@ -18,9 +18,8 @@ const NavBar = props => {
       <div className="navLinks">
         {props.location.pathname !== "/" && <Link to="/">Home</Link>}
 
-        {props.location.pathname === "/" && loginState.isLoggedIn && (
-          <Link to="/dashboard">Game</Link>
-        )}
+        {props.location.pathname === "/" &&
+          (loginState.isLoggedIn || token) && <Link to="/dashboard">Game</Link>}
 
         {(loginState.isLoggedIn || token) && (
           <Link to="/" onClick={() => logout(dispatch)}>
