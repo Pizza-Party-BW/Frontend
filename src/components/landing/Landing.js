@@ -32,6 +32,7 @@ const team = [
     photo: may
   }
 ];
+
 const Landing = () => {
   return (
     <LandingContainer>
