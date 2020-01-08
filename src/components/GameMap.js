@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import { useStateValue } from "../hooks/useStateValue";
-import { getLocation } from "../actions";
+import { getLocation, getMap } from "../actions";
 
 const GameMap = () => {
-  const [{ locationState }, dispatch] = useStateValue();
+  const [{ locationState, mapState }, dispatch] = useStateValue();
   let errorMsg = locationState.location.error_msg;
+
   console.log(errorMsg);
 
   useEffect(() => {
     getLocation(dispatch);
+    getMap(dispatch);
   }, [dispatch]);
 
   return (
