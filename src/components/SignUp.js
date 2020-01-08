@@ -5,24 +5,44 @@ import styled from "styled-components";
 
 const SignUp = () => {
   return (
-    <SignUpWrapper>
-      <SignUpTitle>Sign-Up</SignUpTitle>
+    <FormContainer>
+      <FormTitle>Sign-Up</FormTitle>
       <SignUpForm />
-      <SignUpMessage>
+      <FormMessage>
         Already have an account? <Link to="/login">Login</Link>
-      </SignUpMessage>
-    </SignUpWrapper>
+      </FormMessage>
+    </FormContainer>
   );
 };
 
 export default SignUp;
 
-const SignUpWrapper = styled.div`
-  font-size: 2rem;
+export const FormContainer = styled.div`
+  color: ${({ theme }) => theme.primaryColor};
+  font-size: ${({ theme }) => theme.smallFont};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
-const SignUpTitle = styled.h2`
+export const FormTitle = styled.h2`
+  font-family: "Press Start 2P";
+  font-size: ${({ theme }) => theme.mediumFont};
   text-align: center;
 `;
-const SignUpMessage = styled.p`
+export const FormMessage = styled.p`
+  font-family: ${({ theme }) => theme.secondaryFont};
   text-align: center;
+
+  a {
+    color: ${({ theme }) => theme.primaryColor};
+    padding: 3px 10px;
+    text-decoration: none;
+    border: 1px solid ${({ theme }) => theme.primaryColor};
+    border-radius: 5px;
+  }
+
+  a:hover {
+    background-color: ${({ theme }) => theme.primaryColor};
+    color: ${({ theme }) => theme.darkColor};
+  }
 `;

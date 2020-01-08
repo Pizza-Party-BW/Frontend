@@ -19,6 +19,7 @@ const theme = {
   largeFont: "3.0rem",
   hugeFont: "4.0rem",
   primaryColor: "#9DD456",
+  darkColor: "#272727",
   headerFont: "Press Start 2P",
   secondaryFont: "Play, sans-serif"
 };

@@ -1,28 +1,20 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 
+// Styles
+import { FormContainer, FormTitle, FormMessage } from "./SignUp";
+
 const Login = () => {
   return (
-    <LoginWrapper>
-      <LoginTitle>Login</LoginTitle>
+    <FormContainer>
+      <FormTitle>Login</FormTitle>
       <LoginForm />
-      <LoginMessage>
+      <FormMessage>
         Don't have an account yet? <Link to="/signup">Sign Up</Link>
-      </LoginMessage>
-    </LoginWrapper>
+      </FormMessage>
+    </FormContainer>
   );
 };
 
 export default Login;
-
-const LoginWrapper = styled.div`
-  font-size: 2rem;
-`;
-const LoginTitle = styled.h2`
-  text-align: center;
-`;
-const LoginMessage = styled.p`
-  text-align: center;
-`;
