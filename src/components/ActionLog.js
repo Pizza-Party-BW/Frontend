@@ -54,6 +54,21 @@ export const ActionLogContainer = styled.div`
   grid-column: 1 / span 9;
   grid-row: 6 / 8;
   align-self: end;
+
+  ::-webkit-scrollbar {
+    width: 1.5rem;
+    background-color: ${({ theme }) => theme.darkColor};
+    border: 2px solid ${({ theme }) => theme.primaryColor};
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    width: 0.5rem;
+    background-color: ${({ theme }) => theme.primaryColor};
+    border-radius: 10px;
+    height: 1rem;
+    margin-right: 1rem;
+  }
 `;
 
 const ActionLogText = styled.div`
