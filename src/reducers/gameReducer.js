@@ -4,7 +4,8 @@ import {
   LOCATION_ERROR,
   MOVING_PLAYER,
   MOVE_PLAYER_SUCCESS,
-  MOVE_PLAYER_ERROR
+  MOVE_PLAYER_ERROR,
+  CLEAR_ACTION_LOG
 } from "../actions";
 
 /*
@@ -25,14 +26,18 @@ export const locationReducer = (state, { type, payload }) => {
         isLoading: true
       };
     case LOCATION_SUCCESS:
+      console.log("init location");
       return {
         ...state,
         isLoading: false,
         location: payload,
-        actionLog: [
-          ...state.actionLog,
-          { title: payload.title, description: payload.description }
-        ]
+        actionLog:
+          state.actionLog.length < 1
+            ? [
+                ...state.actionLog,
+                { title: payload.title, description: payload.description }
+              ]
+            : [...state.actionLog]
       };
     case LOCATION_ERROR:
       return {
@@ -49,6 +54,7 @@ export const locationReducer = (state, { type, payload }) => {
         isLoading: true
       };
     case MOVE_PLAYER_SUCCESS:
+      console.log("moved");
       return {
         ...state,
         isLoading: false,
@@ -70,6 +76,12 @@ export const locationReducer = (state, { type, payload }) => {
           ...state.actionLog,
           { title: payload.title, description: payload.description }
         ]
+      };
+
+    case CLEAR_ACTION_LOG:
+      return {
+        ...state,
+        actionLog: []
       };
     default:
       return state;

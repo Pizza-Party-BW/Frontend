@@ -11,6 +11,11 @@ const GameMap = () => {
   useEffect(() => {
     getMap(dispatch);
   }, [dispatch]);
+
+  console.log("mapState", mapState);
+  const rooms = mapState.map;
+  console.log(rooms);
+
   const x = 1;
   const y = 1;
   // console.log(mapState.map, "maps");
@@ -29,8 +34,8 @@ const GameMap = () => {
           gridRow: `${y * -1} / ${(y + 1) * -1}`
         }}
       ></div>
-      {mapState["map"].length > 0 &&
-        mapState["map"].map(room => {
+      {rooms.length > 0 &&
+        rooms.map(room => {
           return <Room></Room>;
         })}
     </GameMapContainer>
