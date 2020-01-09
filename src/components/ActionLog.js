@@ -18,11 +18,19 @@ const ActionLog = () => {
     <ActionLogContainer>
       <GameError>{errorMsg && `WARNING: ${errorMsg}`}</GameError>
       <ActionLogText>
-        {gameState.actionLog.map((action, i) => (
-          <p>
-            {i} {action.title} {action.description}
-          </p>
-        ))}
+        {gameState.actionLog.map((action, i) =>
+          i === gameState.actionLog.length - 1 ? (
+            <CurrentActionLine>
+              {i}) <ActionTitle>{action.title}:</ActionTitle>{" "}
+              <ActionDescription>{action.description}</ActionDescription>
+            </CurrentActionLine>
+          ) : (
+            <ActionLine>
+              <ActionTitle>{action.title}:</ActionTitle>{" "}
+              <ActionDescription>{action.description}</ActionDescription>
+            </ActionLine>
+          )
+        )}
       </ActionLogText>
     </ActionLogContainer>
   );
@@ -33,21 +41,42 @@ export default ActionLog;
 export const ActionLogContainer = styled.div`
   font-size: ${({ theme }) => theme.smallFont};
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   width: 100%;
   height: 20rem;
   border: 2px solid ${({ theme }) => theme.primaryColor};
   border-radius: 15px;
   margin: 20px 0;
   color: ${({ theme }) => theme.primaryColor};
+  overflow-y: auto;
 `;
 
 const ActionLogText = styled.div`
-  padding: 2%;
+  padding: 0 2%;
+  font-family: ${({ theme }) => theme.secondaryFont};
 `;
 
 const GameError = styled.div`
   color: red;
-  padding: 1% 2%;
-  height: ${({ theme }) => theme.smallFont};
+  padding: 1% 2% 2% 2%;
+  height: ${({ theme }) => theme.tinyFont};
+  font-size: ${({ theme }) => theme.tinyFont};
+  font-family: "Press Start 2P";
 `;
+
+const ActionLine = styled.div`
+  margin-bottom: 1%;
+  opacity: 0.35;
+`;
+
+const CurrentActionLine = styled.div`
+  margin-bottom: 1%;
+  opacity: 1;
+`;
+
+const ActionTitle = styled.span`
+  font-family: "Press Start 2P";
+  font-size: ${({ theme }) => theme.tinyFont};
+`;
+
+const ActionDescription = styled.span``;
