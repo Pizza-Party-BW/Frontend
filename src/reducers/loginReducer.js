@@ -20,7 +20,8 @@ export const loginReducer = (state, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        isLoggedIn: true
+        isLoggedIn: true,
+        error: {}
       };
     case LOGIN_ERROR:
       return {
