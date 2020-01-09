@@ -9,8 +9,7 @@ export const getMap = dispatch => {
   axiosAuth()
     .get("/api/rooms/")
     .then(res => {
-      dispatch({ type: MAP_SUCCESS, payload: res });
-      console.log(res);
+      dispatch({ type: MAP_SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.log("Error occured!: ", err.response);

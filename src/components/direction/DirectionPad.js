@@ -13,6 +13,7 @@ const DirectionPad = () => {
   const [{ locationState }, dispatch] = useStateValue();
 
   const getKeyCode = e => {
+    e.preventDefault();
     let keyCode = null;
 
     let up = document.querySelector(".north");
@@ -59,30 +60,28 @@ const DirectionPad = () => {
     return () => window.removeEventListener("keydown", getKeyCode);
   }, []);
   return (
-    <>
-      <DirectionPadWrapper>
-        <button
-          value="n"
-          onClick={e => movePlayer(dispatch, e.target.value)}
-          className="north"
-        ></button>
-        <button
-          value="w"
-          onClick={e => movePlayer(dispatch, e.target.value)}
-          className="west"
-        ></button>
-        <button
-          value="s"
-          onClick={e => movePlayer(dispatch, e.target.value)}
-          className="south"
-        ></button>
-        <button
-          value="e"
-          onClick={e => movePlayer(dispatch, e.target.value)}
-          className="east"
-        ></button>
-      </DirectionPadWrapper>
-    </>
+    <DirectionPadWrapper>
+      <button
+        value="n"
+        onClick={e => movePlayer(dispatch, e.target.value)}
+        className="north"
+      ></button>
+      <button
+        value="w"
+        onClick={e => movePlayer(dispatch, e.target.value)}
+        className="west"
+      ></button>
+      <button
+        value="s"
+        onClick={e => movePlayer(dispatch, e.target.value)}
+        className="south"
+      ></button>
+      <button
+        value="e"
+        onClick={e => movePlayer(dispatch, e.target.value)}
+        className="east"
+      ></button>
+    </DirectionPadWrapper>
   );
 };
 
@@ -92,6 +91,10 @@ const DirectionPadWrapper = styled.div`
   display: grid;
   height: 96px;
   width: 96px;
+  grid-column: 7 / 8;
+  grid-row: 4 / 5;
+  justify-self: center;
+  align-self: center;
 
   button {
     width: 32px;
@@ -99,6 +102,7 @@ const DirectionPadWrapper = styled.div`
     cursor: pointer;
     border: none;
     background-color: transparent;
+    outline: none;
   }
 
   button.north {

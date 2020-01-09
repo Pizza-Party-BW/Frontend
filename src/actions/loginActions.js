@@ -5,6 +5,7 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 
 export const LOGOUT = "LOGOUT";
+export const CLEAR_ACTION_LOG = "CLEAR_ACTION_LOG";
 
 export const login = (dispatch, user) => {
   dispatch({ type: IS_LOGGING_IN });
@@ -23,5 +24,6 @@ export const login = (dispatch, user) => {
 
 export const logout = dispatch => {
   dispatch({ type: LOGOUT });
+  dispatch({ type: CLEAR_ACTION_LOG });
   localStorage.removeItem("token");
 };
