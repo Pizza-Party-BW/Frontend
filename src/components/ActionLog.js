@@ -9,6 +9,8 @@ const ActionLog = () => {
   const [{ gameState }, dispatch] = useStateValue();
   let errorMsg = gameState.location.error_msg;
 
+  console.log(gameState.location);
+
   console.log("game state", gameState);
   useEffect(() => {
     getLocation(dispatch);

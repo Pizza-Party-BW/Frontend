@@ -9,7 +9,18 @@ const GameMap = () => {
     getMap(dispatch);
   }, [dispatch]);
 
-  return <div>This will be a map someday</div>;
+  console.log("mapState", mapState);
+  const rooms = mapState.map;
+  console.log(rooms);
+
+  return (
+    <div>
+      {/* {rooms.map(room => (
+        <div>Room</div>
+      ))} */}
+      This will be a map someday
+    </div>
+  );
 };
 
 export default GameMap;
