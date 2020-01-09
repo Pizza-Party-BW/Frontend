@@ -4,7 +4,8 @@ import {
   LOCATION_ERROR,
   MOVING_PLAYER,
   MOVE_PLAYER_SUCCESS,
-  MOVE_PLAYER_ERROR
+  MOVE_PLAYER_ERROR,
+  CLEAR_ACTION_LOG
 } from "../actions";
 
 /*
@@ -75,6 +76,12 @@ export const locationReducer = (state, { type, payload }) => {
           ...state.actionLog,
           { title: payload.title, description: payload.description }
         ]
+      };
+
+    case CLEAR_ACTION_LOG:
+      return {
+        ...state,
+        actionLog: []
       };
     default:
       return state;
