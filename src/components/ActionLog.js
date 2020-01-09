@@ -21,7 +21,7 @@ const ActionLog = () => {
         {gameState.actionLog.map((action, i) =>
           i === gameState.actionLog.length - 1 ? (
             <CurrentActionLine>
-              {i}) <ActionTitle>{action.title}:</ActionTitle>{" "}
+              <ActionTitle>{action.title}:</ActionTitle>{" "}
               <ActionDescription>{action.description}</ActionDescription>
             </CurrentActionLine>
           ) : (
