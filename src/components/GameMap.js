@@ -4,45 +4,34 @@ import { getMap } from "../actions";
 import styled from "styled-components";
 
 import Room from "./Room";
-import turtle from "./player/assets/turtle-l.png";
+import turtle from "./player/assets/turtle-r.png";
 
 const GameMap = () => {
-  const [{ mapState }, dispatch] = useStateValue();
+  const [{ mapState, gameState }, dispatch] = useStateValue();
 
   useEffect(() => {
     getMap(dispatch);
   }, [dispatch]);
 
-  const x = 1;
-  const y = 1;
-  // console.log(mapState.map, "maps");
+  const x = gameState.location.x;
+  const y = gameState.location.y;
+
   return (
     <GameMapContainer>
       <div
         style={{
           backgroundImage: `url(${turtle})`,
-          width: 48,
-          height: 48,
-          border: "1px solid green",
+          width: 36,
+          height: 36,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           margin: "auto auto",
-          gridColumn: `${x} / ${x + 1}`,
-          gridRow: `${y * -1} / ${(y + 1) * -1}`
+          gridColumn: `${x + 1} / ${x + 2}`,
+          gridRow: `${(y + 1) * -1} / ${(y + 2) * -1}`,
+          zIndex: 110
         }}
       ></div>
 
-      {/* 
-        id: 870
-        title: "Sewer Passageway"
-        description: "A dank and dark sewer passageway. Grating rests atop one of the walls, with no lighting protruding. The water reeks here. Tunnels continue south, and west. "
-        x: 6
-        y: 1
-        n_to: 0
-        s_to: 869
-        e_to: 0
-        w_to: 860
-      */}
       {mapState["map"].length > 0 &&
         mapState["map"].map(room => {
           return <Room room={room} />;
