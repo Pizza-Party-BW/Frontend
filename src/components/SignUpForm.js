@@ -115,6 +115,7 @@ export const FormButton = styled.button`
   :hover {
     background-color: ${({ theme }) => theme.primaryColor};
     color: ${({ theme }) => theme.darkColor};
+    cursor: pointer;
   }
 `;
 
