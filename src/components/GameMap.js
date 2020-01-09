@@ -12,6 +12,7 @@ const GameMap = () => {
   useEffect(() => {
     getMap(dispatch);
   }, [dispatch]);
+
   const x = 1;
   const y = 1;
   // console.log(mapState.map, "maps");

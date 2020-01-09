@@ -20,7 +20,8 @@ export const signUpReducer = (state, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        isSignedUp: true
+        isSignedUp: true,
+        error: {}
       };
     case SIGN_UP_ERROR:
       return {
