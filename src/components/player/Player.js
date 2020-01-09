@@ -5,6 +5,7 @@ import turtleL from "../player/assets/turtle-l.png";
 
 const Player = props => {
   const [{ gameState }, dispatch] = useStateValue();
+  let direction = "turtle" + gameState.direction;
 
   const x = gameState.location.x;
   const y = gameState.location.y;
@@ -12,7 +13,8 @@ const Player = props => {
   return (
     <div
       style={{
-        backgroundImage: `url(${turtleR})`,
+        backgroundImage:
+          direction === "turtleL" ? `url(${turtleL})` : `url(${turtleR})`,
         width: 36,
         height: 36,
         backgroundRepeat: "no-repeat",

@@ -3,6 +3,7 @@ import { axiosAuth } from "../utils/axiosAuth";
 export const GETTING_LOCATION = "GETTING_LOCATION";
 export const LOCATION_SUCCESS = "LOCATION_SUCCESS";
 export const LOCATION_ERROR = "LOCATION_ERROR";
+export const CHANGE_DIRECTION = "CHANGE_DIRECTION";
 
 export const getLocation = dispatch => {
   dispatch({ type: GETTING_LOCATION });
@@ -29,6 +30,12 @@ export const movePlayer = (dispatch, move) => {
     })
     .then(res => {
       dispatch({ type: MOVE_PLAYER_SUCCESS, payload: res.data });
+      if (move === "w") {
+        dispatch({ type: CHANGE_DIRECTION, payload: "L" });
+      }
+      if (move === "e") {
+        dispatch({ type: CHANGE_DIRECTION, payload: "R" });
+      }
       console.log(res.data);
     })
     .catch(err => {
