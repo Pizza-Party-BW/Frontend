@@ -51,6 +51,9 @@ export const ActionLogContainer = styled.div`
   margin: 20px 0;
   color: ${({ theme }) => theme.primaryColor};
   overflow-y: auto;
+  grid-column: 1 / span 9;
+  grid-row: 6 / 8;
+  align-self: end;
 `;
 
 const ActionLogText = styled.div`

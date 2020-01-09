@@ -25,14 +25,18 @@ export const locationReducer = (state, { type, payload }) => {
         isLoading: true
       };
     case LOCATION_SUCCESS:
+      console.log("init location");
       return {
         ...state,
         isLoading: false,
         location: payload,
-        actionLog: [
-          ...state.actionLog,
-          { title: payload.title, description: payload.description }
-        ]
+        actionLog:
+          state.actionLog.length < 1
+            ? [
+                ...state.actionLog,
+                { title: payload.title, description: payload.description }
+              ]
+            : [...state.actionLog]
       };
     case LOCATION_ERROR:
       return {
@@ -49,6 +53,7 @@ export const locationReducer = (state, { type, payload }) => {
         isLoading: true
       };
     case MOVE_PLAYER_SUCCESS:
+      console.log("moved");
       return {
         ...state,
         isLoading: false,
