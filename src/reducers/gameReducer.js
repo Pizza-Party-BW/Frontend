@@ -54,7 +54,8 @@ export const locationReducer = (state, { type, payload }) => {
         isLoading: false,
         location: { ...state.location, ...payload },
         actionLog:
-          payload.title !== state.actionLog[state.actionLog.length - 1].title
+          payload.description !==
+          state.actionLog[state.actionLog.length - 1].description
             ? [
                 ...state.actionLog,
                 { title: payload.title, description: payload.description }
