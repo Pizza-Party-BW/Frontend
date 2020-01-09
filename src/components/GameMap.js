@@ -3,6 +3,7 @@ import { useStateValue } from "../hooks/useStateValue";
 import { getMap } from "../actions";
 import styled from "styled-components";
 
+import Room from "./Room";
 import turtle from "./player/assets/turtle-l.png";
 
 const GameMap = () => {
@@ -11,10 +12,6 @@ const GameMap = () => {
   useEffect(() => {
     getMap(dispatch);
   }, [dispatch]);
-
-  console.log("mapState", mapState);
-  const rooms = mapState.map;
-  console.log(rooms);
 
   const x = 1;
   const y = 1;
@@ -34,9 +31,21 @@ const GameMap = () => {
           gridRow: `${y * -1} / ${(y + 1) * -1}`
         }}
       ></div>
-      {rooms.length > 0 &&
-        rooms.map(room => {
-          return <Room></Room>;
+
+      {/* 
+        id: 870
+        title: "Sewer Passageway"
+        description: "A dank and dark sewer passageway. Grating rests atop one of the walls, with no lighting protruding. The water reeks here. Tunnels continue south, and west. "
+        x: 6
+        y: 1
+        n_to: 0
+        s_to: 869
+        e_to: 0
+        w_to: 860
+      */}
+      {mapState["map"].length > 0 &&
+        mapState["map"].map(room => {
+          return <Room room={room} />;
         })}
     </GameMapContainer>
   );
@@ -53,8 +62,4 @@ const GameMapContainer = styled.div`
   grid-template-rows: repeat(10, 64px);
   grid-columns: 1 / 6;
   grid-rows: 1 / 6;
-`;
-
-const Room = styled.div`
-  outline: 1px solid black;
 `;
