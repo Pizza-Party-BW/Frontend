@@ -14,9 +14,10 @@ const initialState = {
     map: {},
     error: {}
   },
-  locationState: {
+  gameState: {
     isLoading: false,
     location: { uuid: "", name: "", title: "", description: "", players: [] },
+    actionLog: [],
     error: {}
   }
 };

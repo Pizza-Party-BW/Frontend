@@ -9,9 +9,10 @@ import {
 
 /*
 State shape:
-  locationState: {
+  gameState: {
     isLoading: false,
     location: { uuid: "", name: "", title: "", description: "", players: [] },
+    actionLog: [],
     error: {}
   }
 */
@@ -27,12 +28,20 @@ export const locationReducer = (state, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        location: payload
+        location: payload,
+        actionLog: [
+          ...state.actionLog,
+          { title: payload.title, description: payload.description }
+        ]
       };
     case LOCATION_ERROR:
       return {
         ...state,
-        error: payload
+        error: payload,
+        actionLog: [
+          ...state.actionLog,
+          { title: payload.title, description: payload.description }
+        ]
       };
     case MOVING_PLAYER:
       return {
@@ -43,12 +52,23 @@ export const locationReducer = (state, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        location: { ...state.location, ...payload }
+        location: { ...state.location, ...payload },
+        actionLog:
+          payload.title !== state.actionLog[state.actionLog.length - 1].title
+            ? [
+                ...state.actionLog,
+                { title: payload.title, description: payload.description }
+              ]
+            : state.actionLog
       };
     case MOVE_PLAYER_ERROR:
       return {
         ...state,
-        error: payload
+        error: payload,
+        actionLog: [
+          ...state.actionLog,
+          { title: payload.title, description: payload.description }
+        ]
       };
     default:
       return state;
