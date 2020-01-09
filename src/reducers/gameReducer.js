@@ -5,7 +5,8 @@ import {
   MOVING_PLAYER,
   MOVE_PLAYER_SUCCESS,
   MOVE_PLAYER_ERROR,
-  CLEAR_ACTION_LOG
+  CLEAR_ACTION_LOG,
+  CHANGE_DIRECTION
 } from "../actions";
 
 /*
@@ -26,7 +27,6 @@ export const locationReducer = (state, { type, payload }) => {
         isLoading: true
       };
     case LOCATION_SUCCESS:
-      console.log("init location");
       return {
         ...state,
         isLoading: false,
@@ -54,7 +54,6 @@ export const locationReducer = (state, { type, payload }) => {
         isLoading: true
       };
     case MOVE_PLAYER_SUCCESS:
-      console.log("moved");
       return {
         ...state,
         isLoading: false,
@@ -76,6 +75,13 @@ export const locationReducer = (state, { type, payload }) => {
           ...state.actionLog,
           { title: payload.title, description: payload.description }
         ]
+      };
+
+    case CHANGE_DIRECTION:
+      console.log("direction payload", payload);
+      return {
+        ...state,
+        direction: payload
       };
 
     case CLEAR_ACTION_LOG:
