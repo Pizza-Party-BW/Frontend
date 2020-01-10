@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import GameMap from "./GameMap";
+import GameMap from "../components/map/GameMap";
 import SideBar from "./sidebar/Sidebar";
 import ActionLog from "./ActionLog";
 

@@ -13,7 +13,6 @@ const DescriptionText = styled.div`
   grid-row: 10/11;
   width: 300px
   height: 200px
-  border: 1px solid red;
   font-size: ${({ theme }) => theme.smallFont};
   color: ${({ theme }) => theme.primaryColor};
   font-family: ${({ theme }) => theme.secondaryFont};

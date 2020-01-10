@@ -48,7 +48,6 @@ const PlayerName = styled.div`
   font-family: "Press Start 2P";
   display: grid;
   width: 300px;
-  border: 1px solid red;
   grid-column: 1/6;
   grid-row: 9/10;
   justify-self: center;
