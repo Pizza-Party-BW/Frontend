@@ -5,6 +5,7 @@ import chris from "./assets/chris.jpeg";
 import justine from "./assets/justine.jpeg";
 import kevin from "./assets/kevin.png";
 import may from "./assets/may.png";
+import gamescrnshot from "./assets/gamescrnshot.png";
 
 const team = [
   {
@@ -43,7 +44,10 @@ const Landing = () => {
         pizza. Built in only 4 days, the team executed a successful build
         utilizing React and Django.
       </LandingParagraph>
-      <GameScrnSht>SCREENSHOT OF GAMEPLAY!</GameScrnSht>
+      <LandingImgContainer>
+        <GameScrnSht src={gamescrnshot} />
+      </LandingImgContainer>
+
       <LandingHeader>Meet The Team!</LandingHeader>
       <TeamCardContainer>
         {team.map((member, key) => (
@@ -59,7 +63,6 @@ export default Landing;
 const LandingContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
   color: ${({ theme }) => theme.primaryColor};
   font-size: ${({ theme }) => theme.smallFont};
 `;
@@ -75,14 +78,15 @@ const LandingParagraph = styled.p`
   font-size: ${({ theme }) => theme.mediumFont};
 `;
 
-const GameScrnSht = styled.div`
+const GameScrnSht = styled.img`
   margin: 20px 0;
-  height: 300px
-  border: 1px solid ${({ theme }) => theme.primaryColor};
-  font-family: "Press Start 2P";
+  height: 50%;
+  width: 50%;
+`;
+
+const LandingImgContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center
+  justify-content: center;
 `;
 
 const TeamCardContainer = styled.div`
