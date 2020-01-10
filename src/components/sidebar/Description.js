@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const Description = () => {
-  return <DescriptionText>Description of what to do</DescriptionText>;
+  return (
+    <DescriptionText>
+      Use arrow keys or click the directional pad below to navigate your turtle
+      adventurer. Find tasty pizza slices for nom noms.
+    </DescriptionText>
+  );
 };
 
 export default Description;

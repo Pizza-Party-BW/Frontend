@@ -97,8 +97,8 @@ const DirectionPadWrapper = styled.div`
   align-self: center;
 
   button {
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
     cursor: pointer;
     border: none;
     background-color: transparent;
