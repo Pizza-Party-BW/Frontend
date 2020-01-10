@@ -55,6 +55,10 @@ const StyledNav = styled.div`
     font-family: ${({ theme }) => theme.secondaryFont};
     text-decoration: none;
   }
+
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
 const NavHeader = styled.h1`
