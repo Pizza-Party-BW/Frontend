@@ -34,7 +34,6 @@ const Room = ({ room }) => {
   return (
     <div
       style={{
-        // backgroundImage: `url("https://raw.githubusercontent.com/Pizza-Party-BW/Frontend/development/src/components/map/assets/${url}.png")`,
         backgroundImage:
           (url === "e" && `url(${e})`) ||
           (url === "n" && `url(${n})`) ||
