@@ -38,16 +38,10 @@ const Landing = () => {
     <LandingContainer>
       <LandingHeader>Welcome to Pizza Party</LandingHeader>
       <LandingParagraph>
-        Sweet roll danish donut cupcake chocolate jujubes cake. Sweet roll
-        topping pudding tootsie roll sweet roll apple pie fruitcake donut.
-        Cookie bonbon sweet roll carrot cake macaroon jelly cotton candy donut
-        icing. Cake sesame snaps jelly-o jelly-o candy canes wafer lollipop
-        tiramisu sugar plum. Jujubes marshmallow dessert cotton candy macaroon
-        tart. Chocolate sugar plum sweet brownie chocolate icing. Cheesecake
-        wafer donut gingerbread wafer croissant. Oat cake candy bonbon chocolate
-        macaroon danish. Macaroon donut marzipan cotton candy tart sweet roll
-        macaroon muffin. Macaroon jelly beans oat cake jujubes brownie pastry
-        cheesecake.
+        Pizza Party is an adventure game that allows players to control their
+        turtle adventurer to navigate sewer passages in search of pizza. Built
+        in only 4 days, the team executed a successful build utilizing React and
+        Django.
       </LandingParagraph>
       <GameScrnSht>SCREENSHOT OF GAMEPLAY!</GameScrnSht>
       <LandingHeader>Meet The Team!</LandingHeader>
@@ -78,6 +72,7 @@ const LandingHeader = styled.h2`
 
 const LandingParagraph = styled.p`
   font-family: ${({ theme }) => theme.secondaryFont};
+  font-size: ${({ theme }) => theme.mediumFont};
 `;
 
 const GameScrnSht = styled.div`
