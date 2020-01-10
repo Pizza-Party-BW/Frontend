@@ -5,6 +5,7 @@ import chris from "./assets/chris.jpeg";
 import justine from "./assets/justine.jpeg";
 import kevin from "./assets/kevin.png";
 import may from "./assets/may.png";
+import gamescrnshot from "./assets/gamescrnshot.png";
 
 const team = [
   {
@@ -37,13 +38,17 @@ const Landing = () => {
   return (
     <LandingContainer>
       <LandingHeader>Welcome to Pizza Party</LandingHeader>
+
       <LandingParagraph>
         Pizza Party is an interactive adventure game that allows players to
         control their turtle adventurer to navigate sewer passages in search of
         pizza. Built in only 4 days, the team executed a successful build
         utilizing React and Django.
       </LandingParagraph>
-      <GameScrnSht>SCREENSHOT OF GAMEPLAY!</GameScrnSht>
+      <LandingImgContainer>
+        <GameScrnSht src={gamescrnshot} />
+      </LandingImgContainer>
+
       <LandingHeader>Meet The Team!</LandingHeader>
       <TeamCardContainer>
         {team.map((member, key) => (
@@ -75,14 +80,15 @@ const LandingParagraph = styled.p`
   font-size: ${({ theme }) => theme.mediumFont};
 `;
 
-const GameScrnSht = styled.div`
+const GameScrnSht = styled.img`
   margin: 20px 0;
-  height: 300px
-  border: 1px solid ${({ theme }) => theme.primaryColor};
-  font-family: "Press Start 2P";
+  height: 50%;
+  width: 50%;
+`;
+
+const LandingImgContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center
+  justify-content: center;
 `;
 
 const TeamCardContainer = styled.div`
