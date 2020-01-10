@@ -21,6 +21,8 @@ export const getLocation = dispatch => {
 export const MOVING_PLAYER = "MOVING_PLAYER";
 export const MOVE_PLAYER_SUCCESS = "MOVE_PLAYER_SUCCESS";
 export const MOVE_PLAYER_ERROR = "MOVE_PLAYER_ERROR";
+export const FOUND_PIZZA = "FOUND_PIZZA";
+export const CLEAR_PIZZA = "CLEAR_PIZZA";
 
 export const movePlayer = (dispatch, move) => {
   dispatch({ type: MOVING_PLAYER });
@@ -36,7 +38,22 @@ export const movePlayer = (dispatch, move) => {
       if (move === "e") {
         dispatch({ type: CHANGE_DIRECTION, payload: "R" });
       }
-      console.log(res.data);
+
+      if (
+        (res.data.x === 1 && res.data.y === 1) ||
+        (res.data.x === 6 && res.data.y === 0) ||
+        (res.data.x === 6 && res.data.y === 9) ||
+        (res.data.x === 2 && res.data.y === 7) ||
+        (res.data.x === 3 && res.data.y === 5) ||
+        (res.data.x === 6 && res.data.y === 5)
+      ) {
+        dispatch({
+          type: FOUND_PIZZA,
+          payload: "Oooo, found some pizza! *nom* *nom*"
+        });
+      } else {
+        dispatch({ type: CLEAR_PIZZA });
+      }
     })
     .catch(err => {
       dispatch({ type: MOVE_PLAYER_ERROR, payload: err.response.data });

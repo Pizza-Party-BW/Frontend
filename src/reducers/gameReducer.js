@@ -6,7 +6,9 @@ import {
   MOVE_PLAYER_SUCCESS,
   MOVE_PLAYER_ERROR,
   CLEAR_ACTION_LOG,
-  CHANGE_DIRECTION
+  CHANGE_DIRECTION,
+  FOUND_PIZZA,
+  CLEAR_PIZZA
 } from "../actions";
 
 /*
@@ -76,18 +78,25 @@ export const locationReducer = (state, { type, payload }) => {
           { title: payload.title, description: payload.description }
         ]
       };
-
     case CHANGE_DIRECTION:
-      console.log("direction payload", payload);
       return {
         ...state,
         direction: payload
       };
-
     case CLEAR_ACTION_LOG:
       return {
         ...state,
         actionLog: []
+      };
+    case FOUND_PIZZA:
+      return {
+        ...state,
+        pizza: payload
+      };
+    case CLEAR_PIZZA:
+      return {
+        ...state,
+        pizza: ""
       };
     default:
       return state;
