@@ -38,7 +38,6 @@ const Landing = () => {
   return (
     <LandingContainer>
       <LandingHeader>Welcome to Pizza Party</LandingHeader>
-
       <LandingParagraph>
         Pizza Party is an interactive adventure game that allows players to
         control their turtle adventurer to navigate sewer passages in search of
@@ -64,7 +63,6 @@ export default Landing;
 const LandingContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
   color: ${({ theme }) => theme.primaryColor};
   font-size: ${({ theme }) => theme.smallFont};
 `;
