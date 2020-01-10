@@ -49,6 +49,7 @@ const PlayerName = styled.div`
   display: grid;
   width: 300px;
   border: 1px solid red;
-  grid-column: 2/4;
-  grid-row: 8/9;
+  grid-column: 1/6;
+  grid-row: 9/10;
+  justify-self: center;
 `;

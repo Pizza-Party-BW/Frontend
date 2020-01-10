@@ -2,7 +2,6 @@ import React from "react";
 
 // Components
 import GameMap from "./GameMap";
-import DirectionPad from "./direction/DirectionPad";
 import SideBar from "./sidebar/Sidebar";
 import ActionLog from "./ActionLog";
 
