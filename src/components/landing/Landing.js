@@ -65,6 +65,7 @@ const LandingContainer = styled.div`
   flex-direction: column;
   color: ${({ theme }) => theme.primaryColor};
   font-size: ${({ theme }) => theme.smallFont};
+  margin-bottom: 20px;
 `;
 
 const LandingHeader = styled.h2`
