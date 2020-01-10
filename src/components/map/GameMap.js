@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { useStateValue } from "../hooks/useStateValue";
-import { getMap } from "../actions";
+import { useStateValue } from "../../hooks/useStateValue";
+import { getMap } from "../../actions";
 import styled from "styled-components";
 
 import Room from "./Room";
-import Player from "./player/Player";
+import Player from "../player/Player";
 
 const GameMap = () => {
   const [{ mapState }, dispatch] = useStateValue();
