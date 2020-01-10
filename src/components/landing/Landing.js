@@ -38,10 +38,10 @@ const Landing = () => {
     <LandingContainer>
       <LandingHeader>Welcome to Pizza Party</LandingHeader>
       <LandingParagraph>
-        Pizza Party is an adventure game that allows players to control their
-        turtle adventurer to navigate sewer passages in search of pizza. Built
-        in only 4 days, the team executed a successful build utilizing React and
-        Django.
+        Pizza Party is an interactive adventure game that allows players to
+        control their turtle adventurer to navigate sewer passages in search of
+        pizza. Built in only 4 days, the team executed a successful build
+        utilizing React and Django.
       </LandingParagraph>
       <GameScrnSht>SCREENSHOT OF GAMEPLAY!</GameScrnSht>
       <LandingHeader>Meet The Team!</LandingHeader>
