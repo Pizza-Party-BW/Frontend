@@ -10,7 +10,7 @@ import west from "./assets/west.png";
 import east from "./assets/east.png";
 
 const DirectionPad = () => {
-  const [{ locationState }, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const getKeyCode = e => {
     e.preventDefault();
