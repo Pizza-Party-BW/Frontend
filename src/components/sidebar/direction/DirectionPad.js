@@ -89,20 +89,22 @@ export default DirectionPad;
 
 const DirectionPadWrapper = styled.div`
   display: grid;
-  height: 96px;
-  width: 96px;
+  height: 192px;
+  width: 192px;
   grid-column: 3 / 4;
   grid-row: 15 / 20;
   justify-self: center;
   align-self: center;
 
   button {
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
     cursor: pointer;
     border: none;
     background-color: transparent;
     outline: none;
+    background-size: cover;
+    background-position: center;
   }
 
   button.north {

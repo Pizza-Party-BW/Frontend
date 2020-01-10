@@ -40,7 +40,6 @@ const LoginForm = props => {
           type="text"
           name="username"
           required
-          placeholder="Username"
           value={user.username}
           onChange={handleChange}
         />
@@ -49,7 +48,6 @@ const LoginForm = props => {
           type="password"
           name="password"
           required
-          placeholder="Password"
           value={user.password}
           onChange={handleChange}
         />
