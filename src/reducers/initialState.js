@@ -18,6 +18,7 @@ const initialState = {
     isLoading: false,
     location: { uuid: "", name: "", title: "", description: "", players: [] },
     direction: "R",
+    pizza: "",
     actionLog: [],
     error: {}
   }

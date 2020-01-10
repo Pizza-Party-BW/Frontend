@@ -1,8 +1,8 @@
 import React from "react";
 
 // Components
-import GameMap from "./GameMap";
-import DirectionPad from "./direction/DirectionPad";
+import GameMap from "../components/map/GameMap";
+import SideBar from "./sidebar/Sidebar";
 import ActionLog from "./ActionLog";
 
 import styled from "styled-components";
@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <DashboardContainer>
       <GameMap />
-      <DirectionPad />
+      <SideBar />
       <ActionLog />
     </DashboardContainer>
   );

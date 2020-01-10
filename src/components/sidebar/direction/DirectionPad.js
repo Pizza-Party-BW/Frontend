@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useStateValue } from "../../hooks/useStateValue";
-import { movePlayer } from "../../actions";
+import { useStateValue } from "../../../hooks/useStateValue";
+import { movePlayer } from "../../../actions";
 import styled from "styled-components";
 
 // Images for the direction pad
@@ -12,53 +12,52 @@ import east from "./assets/east.png";
 const DirectionPad = () => {
   const [, dispatch] = useStateValue();
 
-  const getKeyCode = e => {
-    e.preventDefault();
-    let keyCode = null;
-
-    let up = document.querySelector(".north");
-    let left = document.querySelector(".west");
-    let down = document.querySelector(".south");
-    let right = document.querySelector(".east");
-
-    switch (e.keyCode) {
-      case 37:
-        keyCode = "w";
-        left.style.transform = "scale(0.8)";
-        break;
-      case 38:
-        keyCode = "n";
-        up.style.transform = "scale(0.8)";
-        break;
-      case 39:
-        keyCode = "e";
-        right.style.transform = "scale(0.8)";
-        break;
-      case 40:
-        keyCode = "s";
-        down.style.transform = "scale(0.8)";
-        break;
-      default:
-        break;
-    }
-
-    movePlayer(dispatch, keyCode);
-
-    setTimeout(() => {
-      up.removeAttribute("style");
-      down.removeAttribute("style");
-      left.removeAttribute("style");
-      right.removeAttribute("style");
-    }, 100);
-  };
-
   useEffect(() => {
+    const getKeyCode = e => {
+      e.preventDefault();
+      let keyCode = null;
+
+      let up = document.querySelector(".north");
+      let left = document.querySelector(".west");
+      let down = document.querySelector(".south");
+      let right = document.querySelector(".east");
+
+      switch (e.keyCode) {
+        case 37:
+          keyCode = "w";
+          left.style.transform = "scale(0.8)";
+          break;
+        case 38:
+          keyCode = "n";
+          up.style.transform = "scale(0.8)";
+          break;
+        case 39:
+          keyCode = "e";
+          right.style.transform = "scale(0.8)";
+          break;
+        case 40:
+          keyCode = "s";
+          down.style.transform = "scale(0.8)";
+          break;
+        default:
+          break;
+      }
+
+      movePlayer(dispatch, keyCode);
+
+      setTimeout(() => {
+        up.removeAttribute("style");
+        down.removeAttribute("style");
+        left.removeAttribute("style");
+        right.removeAttribute("style");
+      }, 100);
+    };
     // Add event listener for keyboard press
     window.addEventListener("keydown", getKeyCode);
 
     // Used to clean up the event listener
     return () => window.removeEventListener("keydown", getKeyCode);
-  }, []);
+  }, [dispatch]);
   return (
     <DirectionPadWrapper>
       <button
@@ -89,20 +88,22 @@ export default DirectionPad;
 
 const DirectionPadWrapper = styled.div`
   display: grid;
-  height: 96px;
-  width: 96px;
-  grid-column: 7 / 8;
-  grid-row: 4 / 5;
+  height: 192px;
+  width: 192px;
+  grid-column: 3 / 4;
+  grid-row: 15 / 20;
   justify-self: center;
   align-self: center;
 
   button {
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
     cursor: pointer;
     border: none;
     background-color: transparent;
     outline: none;
+    background-size: cover;
+    background-position: center;
   }
 
   button.north {

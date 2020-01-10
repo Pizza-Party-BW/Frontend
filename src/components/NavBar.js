@@ -47,12 +47,17 @@ const StyledNav = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 15px;
 
   a {
     font-size: ${({ theme }) => theme.mediumFont};
     color: ${({ theme }) => theme.primaryColor};
     font-family: ${({ theme }) => theme.secondaryFont};
     text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 `;
 

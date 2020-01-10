@@ -4,7 +4,7 @@ import turtleR from "../player/assets/turtle-r.png";
 import turtleL from "../player/assets/turtle-l.png";
 
 const Player = props => {
-  const [{ gameState }, dispatch] = useStateValue();
+  const [{ gameState }] = useStateValue();
   let direction = "turtle" + gameState.direction;
 
   const x = gameState.location.x;

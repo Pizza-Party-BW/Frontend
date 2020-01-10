@@ -8,26 +8,32 @@ import styled from "styled-components";
 const ActionLog = () => {
   const [{ gameState }, dispatch] = useStateValue();
   let errorMsg = gameState.location.error_msg;
+  let pizza = gameState.pizza;
 
-  console.log(gameState.location);
+  const renderMessage = () => {
+    if (errorMsg) {
+      return `WARNING: ${errorMsg}`;
+    } else if (pizza) {
+      return `${pizza}`;
+    }
+  };
 
-  console.log("game state", gameState);
   useEffect(() => {
     getLocation(dispatch);
   }, [dispatch]);
 
   return (
     <ActionLogContainer>
-      <GameError>{errorMsg && `WARNING: ${errorMsg}`}</GameError>
+      <GameError>{renderMessage()}</GameError>
       <ActionLogText>
         {gameState.actionLog.map((action, i) =>
           i === gameState.actionLog.length - 1 ? (
-            <CurrentActionLine>
+            <CurrentActionLine key={i}>
               <ActionTitle>{action.title}:</ActionTitle>{" "}
               <ActionDescription>{action.description}</ActionDescription>
             </CurrentActionLine>
           ) : (
-            <ActionLine>
+            <ActionLine key={i}>
               <ActionTitle>{action.title}:</ActionTitle>{" "}
               <ActionDescription>{action.description}</ActionDescription>
             </ActionLine>
