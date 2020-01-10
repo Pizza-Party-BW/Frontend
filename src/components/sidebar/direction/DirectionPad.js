@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useStateValue } from "../../hooks/useStateValue";
-import { movePlayer } from "../../actions";
+import { useStateValue } from "../../../hooks/useStateValue";
+import { movePlayer } from "../../../actions";
 import styled from "styled-components";
 
 // Images for the direction pad
