@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useStateValue } from "../../hooks/useStateValue";
-import { movePlayer } from "../../actions";
+import { useStateValue } from "../../../hooks/useStateValue";
+import { movePlayer } from "../../../actions";
 import styled from "styled-components";
 
 // Images for the direction pad
@@ -91,8 +91,8 @@ const DirectionPadWrapper = styled.div`
   display: grid;
   height: 96px;
   width: 96px;
-  grid-column: 7 / 8;
-  grid-row: 4 / 5;
+  grid-column: 3 / 4;
+  grid-row: 15 / 20;
   justify-self: center;
   align-self: center;
 

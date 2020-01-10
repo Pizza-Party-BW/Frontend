@@ -47,6 +47,7 @@ const StyledNav = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 15px;
 
   a {
     font-size: ${({ theme }) => theme.mediumFont};
